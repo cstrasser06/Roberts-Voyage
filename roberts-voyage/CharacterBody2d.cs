@@ -9,7 +9,7 @@ public partial class CharacterBody2d : CharacterBody2D
 	{
 		Vector2 velocity = Velocity;
 
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		Vector2 direction = Input.GetVector("MOVELEFT", "MOVERIGHT", "MOVEUP", "MOVEDOWN");
 
 		
 		if (direction != Vector2.Zero)
