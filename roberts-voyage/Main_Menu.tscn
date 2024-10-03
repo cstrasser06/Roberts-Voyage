@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dek5p4vxn0g4r"]
+[gd_scene load_steps=8 format=3 uid="uid://dek5p4vxn0g4r"]
 
 [ext_resource type="FontFile" uid="uid://8je8qnxwvycc" path="res://PublicPixel-rv0pA.ttf" id="1_1yc7j"]
+[ext_resource type="Script" path="res://Quit_Button.gd" id="2_gb2ln"]
 [ext_resource type="Script" path="res://Start_Button.gd" id="2_qtwe6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8w8vd"]
@@ -40,6 +41,7 @@ offset_top = 384.0
 offset_right = 739.0
 offset_bottom = 435.0
 theme = SubResource("Theme_1otcv")
+script = ExtResource("2_gb2ln")
 
 [node name="Label" type="Label" parent="Button2"]
 layout_mode = 0
@@ -71,7 +73,6 @@ offset_left = -1.0
 offset_top = -2.0
 offset_right = 291.0
 offset_bottom = 50.0
-theme = SubResource("Theme_gtsnr")
 text = "Start Game"
 label_settings = SubResource("LabelSettings_y14vt")
 horizontal_alignment = 1
