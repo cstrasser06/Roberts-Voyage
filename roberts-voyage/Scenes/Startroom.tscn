@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=4 uid="uid://soh3nf3mmoub"]
+[gd_scene load_steps=13 format=4 uid="uid://soh3nf3mmoub"]
 
-[ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_seduo"]
-[ext_resource type="Texture2D" uid="uid://cwp3hvgyiev23" path="res://Sprites/icon.svg" id="2_ycqug"]
+[ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_clj8q"]
+[ext_resource type="Texture2D" uid="uid://cwp3hvgyiev23" path="res://Sprites/icon.svg" id="2_aaonu"]
+[ext_resource type="Script" path="res://Scripts/exit.gd" id="3_chh11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8mdk"]
 size = Vector2(127, 127)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rqkl"]
-texture = ExtResource("2_ycqug")
+texture = ExtResource("2_aaonu")
 0:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
@@ -92,14 +93,17 @@ size = Vector2(1156, 58)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwws2"]
 size = Vector2(71, 89)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w56il"]
+size = Vector2(50, 161)
+
 [node name="StartRoom" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(563, 313)
-script = ExtResource("1_seduo")
+script = ExtResource("1_clj8q")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_ycqug")
+texture = ExtResource("2_aaonu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-1, 1)
@@ -131,3 +135,13 @@ shape = SubResource("RectangleShape2D_0sya1")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="TileMapLayer/StaticBody2D"]
 position = Vector2(1104.5, 272.5)
 shape = SubResource("RectangleShape2D_vwws2")
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(1108, 480)
+script = ExtResource("3_chh11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(16, -11.5)
+shape = SubResource("RectangleShape2D_w56il")
+
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

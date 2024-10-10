@@ -6,7 +6,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _pressed() -> void:
-	get_tree().change_scene_to_file("res://node_2d.tscn");
+	get_tree().change_scene_to_file("res://Scenes/Startroom.tscn");
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
