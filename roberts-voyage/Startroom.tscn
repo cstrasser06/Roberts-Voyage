@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://soh3nf3mmoub"]
+[gd_scene load_steps=12 format=4 uid="uid://soh3nf3mmoub"]
 
 [ext_resource type="Script" path="res://CharacterBody2d.cs" id="1_r2ukj"]
 [ext_resource type="Texture2D" uid="uid://cwp3hvgyiev23" path="res://icon.svg" id="2_ycqug"]
+[ext_resource type="PackedScene" uid="uid://bj0k6l15qt7ir" path="res://Inventory/inventory.tscn" id="3_67xpl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8mdk"]
 size = Vector2(127, 127)
@@ -130,3 +131,20 @@ shape = SubResource("RectangleShape2D_0sya1")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="TileMapLayer/StaticBody2D"]
 position = Vector2(1104.5, 272.5)
 shape = SubResource("RectangleShape2D_vwws2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerInventory" parent="CanvasLayer/InventoryInterface" instance=ExtResource("3_67xpl")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
