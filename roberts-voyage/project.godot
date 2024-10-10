@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Roberts Voyage"
-run/main_scene="res://Startroom.tscn"
+run/main_scene="res://Scenes/Startroom.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
-Player="*res://Player.gd"
+Player="*res://Scripts/Player.gd"
 
 [display]
 

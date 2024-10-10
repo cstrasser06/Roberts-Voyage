@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxt3u5vc0b27k"]
 
-[ext_resource type="FontFile" uid="uid://8je8qnxwvycc" path="res://PublicPixel-rv0pA.ttf" id="1_1yc7j"]
-[ext_resource type="Script" path="res://Start_Button.gd" id="2_qtwe6"]
+[ext_resource type="FontFile" uid="uid://8je8qnxwvycc" path="res://Texts/PublicPixel-rv0pA.ttf" id="1_hh81k"]
+[ext_resource type="Script" path="res://Scripts/Start_Button.gd" id="2_ex16x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8w8vd"]
-font = ExtResource("1_1yc7j")
+font = ExtResource("1_hh81k")
 font_size = 60
 
 [sub_resource type="Theme" id="Theme_1otcv"]
@@ -13,7 +13,7 @@ default_font_size = 0
 [sub_resource type="Theme" id="Theme_gtsnr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y14vt"]
-font = ExtResource("1_1yc7j")
+font = ExtResource("1_hh81k")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -63,7 +63,7 @@ theme = SubResource("Theme_gtsnr")
 toggle_mode = true
 button_pressed = true
 action_mode = 0
-script = ExtResource("2_qtwe6")
+script = ExtResource("2_ex16x")
 
 [node name="Label" type="Label" parent="Button"]
 layout_mode = 0
