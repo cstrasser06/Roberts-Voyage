@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=4 uid="uid://soh3nf3mmoub"]
 
-[ext_resource type="Script" path="res://CharacterBody2d.cs" id="1_r2ukj"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_seduo"]
 [ext_resource type="Texture2D" uid="uid://cwp3hvgyiev23" path="res://icon.svg" id="2_ycqug"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8mdk"]
@@ -74,6 +74,7 @@ texture = ExtResource("2_ycqug")
 5:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_aj6x6"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8rqkl")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbqtn"]
@@ -95,7 +96,7 @@ size = Vector2(71, 89)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(563, 313)
-script = ExtResource("1_r2ukj")
+script = ExtResource("1_seduo")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("2_ycqug")
