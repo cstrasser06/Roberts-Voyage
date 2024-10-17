@@ -1,7 +1,10 @@
-extends PanelContainer
+extends Button
 
 @onready var texture_rect: TextureRect = $MarginContainer/TextureRect
 @onready var quantity_label: Label = $QuantityLabel
+@onready var items: ItemList = $MarginContainer/ItemGrid
+	
+
 func set_slot_data(slot_data: SlotData) -> void:
 	var item_data = slot_data.item_data
 	texture_rect.texture = item_data.texture

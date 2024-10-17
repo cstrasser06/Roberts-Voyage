@@ -3,14 +3,18 @@ extends PanelContainer
 const Slot = preload("res://Inventory/slot.tscn")
 
 @onready var item_grid: GridContainer = $MarginContainer/ItemGrid
+@onready var color_rect = $"../../ColorRect"
 
 func _ready() -> void:
 		var inv_data = preload("res://test_inv.tres")
 		populate_item_grid(inv_data.slot_datas)
+		color_rect.visible = false
+		visible = false
 
 func _input(event):
 	if(event.is_action_pressed("OPEN_INVENTORY")):
 		visible = !visible
+		color_rect.visible = !color_rect.visible
 
 func set_inventory_data(inventory_data: InventoryData) -> void:
 	populate_item_grid(inventory_data.slot_datas)
