@@ -14,3 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Startroom.tscn");
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().quit(0);

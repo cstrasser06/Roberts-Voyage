@@ -77,4 +77,5 @@ label_settings = SubResource("LabelSettings_y14vt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="Button2" to="Button" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
