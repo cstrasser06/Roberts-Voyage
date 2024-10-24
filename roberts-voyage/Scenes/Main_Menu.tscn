@@ -25,19 +25,19 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -1.0
-offset_top = 105.0
-offset_right = 1151.0
-offset_bottom = 161.0
+offset_left = 2.0
+offset_top = 129.0
+offset_right = 1600.0
+offset_bottom = 189.0
 text = "R0b3rt's Voyage"
 label_settings = SubResource("LabelSettings_8w8vd")
 horizontal_alignment = 1
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 2
-offset_left = 448.0
+offset_left = 655.0
 offset_top = 384.0
-offset_right = 739.0
+offset_right = 946.0
 offset_bottom = 435.0
 theme = SubResource("Theme_1otcv")
 
@@ -55,9 +55,9 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
-offset_left = 448.0
+offset_left = 655.0
 offset_top = 302.0
-offset_right = 739.0
+offset_right = 946.0
 offset_bottom = 353.0
 theme = SubResource("Theme_gtsnr")
 toggle_mode = true
@@ -76,3 +76,6 @@ text = "Start Game"
 label_settings = SubResource("LabelSettings_y14vt")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="Button2" to="Button" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
