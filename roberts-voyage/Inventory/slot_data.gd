@@ -1,14 +1,37 @@
 extends Resource
+
 class_name SlotData
 
-const MAX_STACK_SIZE: int = 3
+const MAX_STACK_SIZE: int = 64
 
-@export var item_data: ItemData
-@export_range(1, MAX_STACK_SIZE) var quantity: int = 1: set = set_quantity
+@export var itemData: ItemData
+@export_range(1, MAX_STACK_SIZE) var quantity = 1: set = setQuantity
 
-func set_quantity(value: int) -> void:
-	quantity = value
-	if quantity > 1 and not item_data.stackable:
-		quantity = 1
-		push_error("%s is not stackable, setting quantity to 1" %[item_data.name])
+func canMergeWithSingleItem(slotData: SlotData) -> bool:
+	if slotData.itemData.name == itemData.name and slotData.itemData.stackable \
+	 and slotData.quantity < MAX_STACK_SIZE:
+		return true
+	else:
+		return false
+
+func canMergeWithSameItem(slotData: SlotData) -> bool:
+	if slotData.itemData.name == itemData.name and slotData.itemData.stackable \
+	 and slotData.quantity + quantity < MAX_STACK_SIZE:
+		return true
+	else:
+		return false
+
+func mergeWithSameItem(slotData: SlotData) -> void:
+		quantity += slotData.quantity
 	
+func createSingleSlotData() -> SlotData:
+	var newSlotData = duplicate()
+	newSlotData.quantity = 1
+	quantity -=1
+	return newSlotData
+
+
+func setQuantity(value: int):
+	quantity = value
+	if quantity > 1 and not itemData.stackable:
+		quantity = 1

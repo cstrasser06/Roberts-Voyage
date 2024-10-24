@@ -1,8 +1,10 @@
 extends CharacterBody2D
-@export var inventory_data: InventoryData
+@export var inventoryData: InventoryData
 
 const SPEED = 300.0
 
+func _ready() -> void:
+	inventoryData = preload("res://Inventory/test_inv.tres")
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
