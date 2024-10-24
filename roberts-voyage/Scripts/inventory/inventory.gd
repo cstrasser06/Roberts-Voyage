@@ -8,7 +8,7 @@ const Slot = preload("res://Inventory/slot.tscn")
 func _ready() -> void:
 	var inventoryData = preload("res://Inventory/test_inv.tres")
 	fillGrid(inventoryData)
-	
+
 func setInventoryData(invData:InventoryData) -> void:
 	invData.inventoryUpdated.connect(fillGrid)
 	fillGrid(invData)
