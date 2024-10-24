@@ -3,22 +3,27 @@ extends PanelContainer
 const Slot = preload("res://Inventory/slot.tscn")
 
 @onready var item_grid: GridContainer = $MarginContainer/ItemGrid
+@onready var quantity_label: Label = $QuantityLabel
 
 func _ready() -> void:
-		var inv_data = preload("res://test_inv.tres")
-		populate_item_grid(inv_data.slot_datas)
+	var inventoryData = preload("res://Inventory/test_inv.tres")
+	fillGrid(inventoryData)
+	
+func setInventoryData(invData:InventoryData) -> void:
+	invData.inventoryUpdated.connect(fillGrid)
+	fillGrid(invData)
 
-func _input(event):
-	if(event.is_action_pressed("OPEN_INVENTORY")):
-		visible = !visible
-		
-func populate_item_grid(slot_datas: Array[SlotData]) -> void:
+func fillGrid(invData:InventoryData)-> void:
+	#alle children löschen
 	for child in item_grid.get_children():
 		child.queue_free()
-
-	for slot_data in slot_datas:
+		
+	#slot-daten in item-grid hinzufügen
+	for data in invData.slot_datas:
 		var slot = Slot.instantiate()
 		item_grid.add_child(slot)
-	
-		if slot_data:
-			slot.set_slot_data(slot_data)
+		
+		slot.slotClicked.connect(invData.onSlotClicked)
+		
+		if data != null:
+			slot.setSlotData(data)

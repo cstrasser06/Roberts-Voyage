@@ -11,5 +11,5 @@ region = Rect2(0, 175, 120, 175)
 script = ExtResource("1_ws43k")
 name = "Blue Potion"
 description = "Healing 2x"
-stackable = false
+stackable = true
 texture = SubResource("AtlasTexture_xdd7j")

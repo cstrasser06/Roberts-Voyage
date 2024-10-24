@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=11 format=4 uid="uid://soh3nf3mmoub"]
 
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_clj8q"]
@@ -5,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cwp3hvgyiev23" path="res://Sprites/icon.svg" id="2_aaonu"]
 [ext_resource type="Script" path="res://Scripts/exit.gd" id="3_chh11"]
 [ext_resource type="Texture2D" uid="uid://bvsxj2x0rpy82" path="res://Sprites/Sprite-Floors-Level1.png" id="3_whdkv"]
+[ext_resource type="PackedScene" uid="uid://bj0k6l15qt7ir" path="res://Inventory/inventory.tscn" id="5_mokh6"]
+[ext_resource type="Script" path="res://Inventory/inventory_interface.gd" id="6_h2ixt"]
+[ext_resource type="PackedScene" uid="uid://bmpuhojy3fx5s" path="res://Inventory/slot.tscn" id="9_u3r8f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nylrj"]
 texture = ExtResource("3_whdkv")
@@ -57,20 +61,23 @@ size = Vector2(127, 127)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w56il"]
 size = Vector2(50, 161)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i0707"]
+
 [node name="StartRoom" type="Node2D"]
+script = ExtResource("1_u1ahy")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAQAJAAAAAAABAAAAAQAEAAAAAAACAAAAAQAEAAAAAAADAAAAAQAEAAAAAAAEAAAAAQAEAAAAAAAFAAAAAQAJAAAAAAAGAAAAAQAKAAAAAAAHAAAAAQAKAAAAAAAIAAAAAQAKAAAAAAAJAAAAAQAKAAAAAAAKAAAAAQAJAAAAAAALAAAAAQAEAAAAAAAMAAAAAQAEAAAAAAANAAAAAQAEAAAAAAAOAAAAAQAEAAAAAAAPAAAAAQAMAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAEAAAAAAAOAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAALAAgAAAACAAAAAAAKAAgAAAAAAAAAAAAJAAgAAAABAAAAAGAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAABAAAAAGAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAADAAcAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAEAAAAAFABAAgAAAAEAAAAAAACAAgAAAAEAAAAAFAAAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAABAAAAABAOAAEAAAABAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAANAAcAAAAAAAAAAAAMAAcAAAAEAAAAAAALAAcAAAACAAAAACAKAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAEAAAAAGAEAAYAAAAEAAAAADAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAABAAAAABAJAAYAAAABAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAANAAYAAAAAAAAAAAANAAUAAAAAAAAAAAANAAQAAAAAAAAAAAANAAMAAAAAAAAAAAANAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAABAAAAAAACAAIAAAABAAAAABABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAMAAAAEAAAAAAAMAAMAAAAEAAAAAFAMAAQAAAAEAAAAADALAAQAAAAEAAAAAGAKAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAEAAAAAAAEAAUAAAAEAAAAAFAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_txcer")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(563, 313)
 script = ExtResource("1_clj8q")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("2_aaonu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_f8mdk")
 
@@ -82,4 +89,52 @@ script = ExtResource("3_chh11")
 position = Vector2(5, -1)
 shape = SubResource("RectangleShape2D_w56il")
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("6_h2ixt")
+
+[node name="ColorRect" type="ColorRect" parent="UI/InventoryInterface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color(0.409389, 0.418957, 0.368898, 0.768627)
+
+[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("5_mokh6")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="grabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("9_u3r8f")]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i0707")
+
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
+[connection signal="gui_input" from="UI/InventoryInterface/grabbedSlot" to="UI/InventoryInterface/grabbedSlot" method="_on_gui_input"]
