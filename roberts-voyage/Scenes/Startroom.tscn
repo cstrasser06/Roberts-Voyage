@@ -573,14 +573,21 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-color = Color(0.803922, 0.811765, 0.772549, 0.768627)
+color = Color(0.409389, 0.418957, 0.368898, 0.768627)
 
 [node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("5_mokh6")]
 layout_mode = 1
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 70.0
-offset_bottom = 70.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="grabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("9_u3r8f")]
 clip_contents = true
