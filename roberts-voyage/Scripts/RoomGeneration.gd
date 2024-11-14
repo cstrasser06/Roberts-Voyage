@@ -7,9 +7,10 @@ var Bioms = ["U", "S", "H"]
 var currentLevelinBiom = 0
 
 var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-var genstring  = "res://Scenes/Rooms/Room_UA0.tscn"
-var loaded_scene = load(genstring);
+var loaded_scene = load("res://Scenes/Rooms/Room_UA0.tscn");
 var currentscene = loaded_scene.instantiate();
+
+var enemyamount = 0
 
 
 func initrooms():

@@ -11,6 +11,16 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var directionx := Input.get_axis("MOVELEFT", "MOVERIGHT")
 	var directiony := Input.get_axis("MOVEUP", "MOVEDOWN")
+	
+	if Input.is_action_pressed("MOVELEFT"):
+		$AnimatedSprite2D.play("robert_walk")
+		$AnimatedSprite2D.flip_h = true;
+	elif Input.is_action_pressed("MOVEDOWN") || Input.is_action_pressed("MOVEUP") || Input.is_action_pressed("MOVERIGHT"):
+		$AnimatedSprite2D.play("robert_walk")
+		$AnimatedSprite2D.flip_h = false;
+	else:
+		$AnimatedSprite2D.play("robert_idle")
+	
 	if directionx || directiony:
 		velocity.x = directionx * SPEED
 		velocity.y = directiony * SPEED
