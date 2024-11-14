@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://csuv28mguojdm"]
+[gd_scene load_steps=28 format=4 uid="uid://csuv28mguojdm"]
 
 [ext_resource type="Texture2D" uid="uid://bvsxj2x0rpy82" path="res://Sprites/Sprite-Floors-Level1.png" id="1_h6snw"]
 [ext_resource type="Texture2D" uid="uid://bl0rf6ll0klx1" path="res://Sprites/Sprite-Walls-Level1.png" id="2_bs1gn"]
@@ -117,17 +117,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfe6y"]
 size = Vector2(127, 127)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0sj5"]
-atlas = ExtResource("5_n5c0c")
-region = Rect2(200, 0, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kotn8"]
-atlas = ExtResource("5_n5c0c")
-region = Rect2(250, 0, 50, 50)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_y12vr"]
 atlas = ExtResource("5_n5c0c")
 region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08k5t"]
+atlas = ExtResource("5_n5c0c")
+region = Rect2(0, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boclk"]
 atlas = ExtResource("5_n5c0c")
@@ -153,17 +149,14 @@ region = Rect2(200, 0, 50, 50)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k0sj5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kotn8")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_y12vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08k5t")
 }],
 "loop": true,
 "name": &"robert_idle",
-"speed": 3.0
+"speed": 0.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -183,7 +176,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"robert_walk",
-"speed": 3.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aggq2"]
@@ -215,7 +208,7 @@ shape = SubResource("RectangleShape2D_jfe6y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_telga")
-animation = &"robert_idle"
+animation = &"robert_walk"
 autoplay = "robert_idle"
 
 [node name="Exit" type="Area2D" parent="."]
