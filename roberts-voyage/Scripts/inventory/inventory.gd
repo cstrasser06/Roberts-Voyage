@@ -9,6 +9,9 @@ func _ready() -> void:
 	var inventoryData = preload("res://Inventory/test_inv.tres")
 	fillGrid(inventoryData)
 
+func getItemGrid() -> GridContainer:
+	return item_grid
+
 func setInventoryData(invData:InventoryData) -> void:
 	invData.inventoryUpdated.connect(fillGrid)
 	fillGrid(invData)

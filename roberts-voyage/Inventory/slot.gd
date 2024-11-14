@@ -3,7 +3,7 @@ extends PanelContainer
 signal slotClicked(index: int, button: int)
 
 @onready var texture_rect: TextureRect = $MarginContainer/TextureRect
-@onready var quantity_label: Label = $QuantityLabel
+@onready var quantity_label: Label = $MarginContainer/QuantityLabel
 
 func setSlotData(data: SlotData) -> void:
 	texture_rect.texture = data.itemData.texture
@@ -11,7 +11,7 @@ func setSlotData(data: SlotData) -> void:
 	
 	if data.itemData.stackable == false:
 		data.quantity = 1;
-		push_error("%s not stackable" %data.itemData.name)
+		push_error("%s not stackable" % data.itemData.name)
 		
 	if data.quantity > 1:
 		quantity_label.text = "x%s" % data.quantity

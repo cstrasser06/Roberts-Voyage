@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://soh3nf3mmoub"]
+[gd_scene load_steps=18 format=4 uid="uid://soh3nf3mmoub"]
 
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_clj8q"]
 [ext_resource type="Script" path="res://Scenes/startroom.gd" id="1_u1ahy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/inventory/inventory_interface.gd" id="6_h2ixt"]
 [ext_resource type="PackedScene" uid="uid://bmpuhojy3fx5s" path="res://Inventory/slot.tscn" id="9_u3r8f"]
 [ext_resource type="Script" path="res://Scripts/inventory/temp_inventory.gd" id="10_hpn83"]
+[ext_resource type="PackedScene" uid="uid://c5er3rpb1s5iq" path="res://Item/map_items/item_pickable.tscn" id="11_qiglm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nylrj"]
 texture = ExtResource("3_whdkv")
@@ -159,6 +160,12 @@ offset_left = -25.0
 offset_right = 25.0
 offset_bottom = 50.0
 grow_horizontal = 2
+
+[node name="Items" type="CanvasLayer" parent="."]
+
+[node name="item_pickable" parent="Items" instance=ExtResource("11_qiglm")]
+item_name = "generic_item"
+item_texture = "generic_texture"
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
 [connection signal="gui_input" from="UI/InventoryInterface/grabbedSlot" to="UI/InventoryInterface/grabbedSlot" method="_on_gui_input"]

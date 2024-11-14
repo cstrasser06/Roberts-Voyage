@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5er3rpb1s5iq"]
+
+[ext_resource type="Script" path="res://Item/map_items/item_pickable.gd" id="1_f56hm"]
+[ext_resource type="Texture2D" uid="uid://7wgv2mwaiva1" path="res://Item/atlas_items.tres" id="2_4wbkw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2k1fk"]
+radius = 24.0208
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s21la"]
+atlas = ExtResource("2_4wbkw")
+region = Rect2(0, 448, 32, 32)
+
+[node name="item_pickable" type="Area2D"]
+script = ExtResource("1_f56hm")
+
+[node name="coll_item" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1)
+shape = SubResource("CircleShape2D_2k1fk")
+one_way_collision_margin = 0.0
+debug_color = Color(3.17663e-06, 0.586432, 0.772094, 0.42)
+
+[node name="pic_item" type="Sprite2D" parent="coll_item"]
+position = Vector2(1, -1)
+scale = Vector2(1.375, 1.34375)
+texture = SubResource("AtlasTexture_s21la")
