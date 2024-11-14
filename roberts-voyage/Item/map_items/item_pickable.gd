@@ -10,12 +10,14 @@ var rng = RandomNumberGenerator.new()
 
 
 func _ready():
+	item = ItemData.new()
 	item = initialiseItem()
+	'''zeile darunter macht faxxen, beim nächsten mal weiter'''
 	$coll_item/pic_item.texture = "%s.tres" %item.name
 	connect("body_entered", Callable(self, "onBodyEntered"))
 
 func initialiseItem() -> ItemData:
-	var item2:ItemData
+	var item2 = ItemData.new()
 	item2.name = spawn_Rnd_Name()
 	item2.coord_x = spawn_Rnd_X()
 	item2.coord_y = spawn_Rnd_Y()
@@ -27,11 +29,11 @@ func _on_Area2D_body_entered(body):
 		queue_free() 
 
 func spawn_Rnd_X() -> int:
-	var val = rng.randf_range(0,15)
+	var val = float(rng.randf_range(0,15))
 	item.coord_x = val
 	return val
 func spawn_Rnd_Y() -> int:
-	var val = rng.randf_range(0,8)
+	var val = float(rng.randf_range(0,8))
 	item.coord_y = val
 	return val
 

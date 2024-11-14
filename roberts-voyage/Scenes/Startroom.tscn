@@ -164,8 +164,6 @@ grow_horizontal = 2
 [node name="Items" type="CanvasLayer" parent="."]
 
 [node name="item_pickable" parent="Items" instance=ExtResource("11_qiglm")]
-item_name = "generic_item"
-item_texture = "generic_texture"
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
 [connection signal="gui_input" from="UI/InventoryInterface/grabbedSlot" to="UI/InventoryInterface/grabbedSlot" method="_on_gui_input"]
