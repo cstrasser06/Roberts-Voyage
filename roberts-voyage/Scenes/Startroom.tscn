@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=4 uid="uid://soh3nf3mmoub"]
 
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="1_clj8q"]
-[ext_resource type="Script" path="res://Scenes/startroom.gd" id="1_u1ahy"]
+[ext_resource type="Script" path="res://Scripts/startroom (2).gd" id="1_u1ahy"]
 [ext_resource type="Texture2D" uid="uid://bl0rf6ll0klx1" path="res://Sprites/Sprite-Walls-Level1.png" id="2_8lh6s"]
 [ext_resource type="Texture2D" uid="uid://cwp3hvgyiev23" path="res://Sprites/icon.svg" id="2_aaonu"]
 [ext_resource type="Script" path="res://Scripts/exit.gd" id="3_chh11"]
