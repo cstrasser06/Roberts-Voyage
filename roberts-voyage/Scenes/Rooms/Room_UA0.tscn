@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bvsxj2x0rpy82" path="res://Sprites/Sprite-Floors-Level1.png" id="1_h6snw"]
 [ext_resource type="Texture2D" uid="uid://bl0rf6ll0klx1" path="res://Sprites/Sprite-Walls-Level1.png" id="2_bs1gn"]
 [ext_resource type="Texture2D" uid="uid://b1bqy2gthi6ms" path="res://Sprites/Sprite-Portal.png" id="3_6niui"]
-[ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="3_xq8qr"]
+[ext_resource type="Script" path="res://Scripts/Player_character.gd" id="3_xq8qr"]
 [ext_resource type="Texture2D" uid="uid://bah4crrf00eg2" path="res://Sprites/Sprite-Robert.png" id="5_n5c0c"]
 [ext_resource type="Script" path="res://Scripts/exit.gd" id="5_uxkm7"]
 
