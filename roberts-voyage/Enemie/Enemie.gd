@@ -1,5 +1,28 @@
 extends Node2D
 
+
+#ENEMIE MELEE ATTACK ------------------------------------------
+
+func _on_melee_hit_body_entered(body: Node2D) -> void:
+	if body == Player_character:
+		Player.currentHP -= 1
+
+
+
+
+
+
+
+
+
+
+
+# --------------------------------------------------------------
+
+
+
+#ENEMIE MOVEMENT -----------------------------------------------
+
 @export var speed: float = randf_range(100.0, 150.0)
 var velocity: Vector2 = Vector2.ZERO
 
@@ -37,3 +60,5 @@ func get_random_direction() -> Vector2:
 		Vector2(0, -1)   
 	]
 	return directions[randi() % directions.size()]
+
+# ---------------------------------------------------------------
