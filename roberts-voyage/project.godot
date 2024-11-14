@@ -18,6 +18,7 @@ config/icon="res://Sprites/icon.svg"
 [autoload]
 
 Player="*res://Scripts/Player.gd"
+RoomGeneration="*res://Scripts/RoomGeneration.gd"
 
 [display]
 
