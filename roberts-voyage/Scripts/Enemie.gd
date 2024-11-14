@@ -4,7 +4,7 @@ extends Node2D
 #ENEMIE MELEE ATTACK ------------------------------------------
 
 func _on_melee_hit_body_entered(body: Node2D) -> void:
-	if body == Player_character:
+	if body.name == "PlayerCharacter":
 		Player.currentHP -= 1
 
 

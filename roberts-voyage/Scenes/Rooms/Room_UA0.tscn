@@ -197,15 +197,15 @@ sprite_frames = SubResource("SpriteFrames_pjb0i")
 animation = &"exit"
 autoplay = "entry"
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="PlayerCharacter" type="CharacterBody2D" parent="."]
 position = Vector2(532, 332)
 script = ExtResource("3_xq8qr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_jfe6y")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_telga")
 animation = &"robert_walk"
