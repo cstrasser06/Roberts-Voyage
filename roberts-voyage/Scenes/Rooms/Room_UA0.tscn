@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://csuv28mguojdm"]
+[gd_scene load_steps=20 format=4 uid="uid://csuv28mguojdm"]
 
 [ext_resource type="Texture2D" uid="uid://bvsxj2x0rpy82" path="res://Sprites/Sprite-Floors-Level1.png" id="1_h6snw"]
 [ext_resource type="Texture2D" uid="uid://bl0rf6ll0klx1" path="res://Sprites/Sprite-Walls-Level1.png" id="2_bs1gn"]
+[ext_resource type="Texture2D" uid="uid://b1bqy2gthi6ms" path="res://Sprites/Sprite-Portal.png" id="3_6niui"]
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="3_xq8qr"]
 [ext_resource type="Texture2D" uid="uid://cwp3hvgyiev23" path="res://Sprites/icon.svg" id="4_5kyx8"]
 [ext_resource type="Script" path="res://Scripts/exit.gd" id="5_uxkm7"]
@@ -51,11 +52,73 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_buo3q")
 sources/1 = SubResource("TileSetAtlasSource_3cxhk")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5unq7"]
+atlas = ExtResource("3_6niui")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4vav"]
+atlas = ExtResource("3_6niui")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htynf"]
+atlas = ExtResource("3_6niui")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xnyn"]
+atlas = ExtResource("3_6niui")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioxge"]
+atlas = ExtResource("3_6niui")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j1nu"]
+atlas = ExtResource("3_6niui")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b82ja"]
+atlas = ExtResource("3_6niui")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjb0i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5unq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4vav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htynf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xnyn")
+}],
+"loop": true,
+"name": &"entry",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioxge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3j1nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b82ja")
+}],
+"loop": true,
+"name": &"exit",
+"speed": 2.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfe6y"]
 size = Vector2(127, 127)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aggq2"]
-size = Vector2(50, 161)
+size = Vector2(127, 177.5)
 
 [node name="RoomUa0" type="Node2D"]
 
@@ -63,8 +126,17 @@ size = Vector2(50, 161)
 tile_map_data = PackedByteArray("AAAAAAAAAQAJAAAAAAABAAAAAQAEAAAAAAACAAAAAQAEAAAAAAADAAAAAQAEAAAAAAAEAAAAAQAEAAAAAAAFAAAAAQAJAAAAAAAGAAAAAQAKAAAAAAAHAAAAAQAKAAAAAAAIAAAAAQAKAAAAAAAJAAAAAQAKAAAAAAAKAAAAAQAJAAAAAAALAAAAAQAEAAAAAAAMAAAAAQAEAAAAAAANAAAAAQAEAAAAAAAOAAAAAQAEAAAAAAAPAAAAAQAMAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAEAAAAAAAOAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAALAAgAAAACAAAAAAAKAAgAAAAAAAAAAAAJAAgAAAABAAAAAGAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAABAAAAAGAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAADAAcAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAEAAAAAFABAAgAAAAEAAAAAAACAAgAAAAEAAAAAFAAAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAABAAAAABAOAAEAAAABAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAANAAcAAAAAAAAAAAAMAAcAAAAEAAAAAAALAAcAAAACAAAAACAKAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAGAAcAAAAAAAAAAAAFAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAEAAAAAGAEAAYAAAAEAAAAADAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAABAAAAABAJAAYAAAABAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAANAAYAAAAAAAAAAAANAAUAAAAAAAAAAAANAAQAAAAAAAAAAAANAAMAAAAAAAAAAAANAAIAAAAAAAAAAAAMAAIAAAAAAAAAAAALAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAABAAAAAAACAAIAAAABAAAAABABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAMAAAAEAAAAAAAMAAMAAAAEAAAAAFAMAAQAAAAEAAAAADALAAQAAAAEAAAAAGAKAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAEAAAAAAAEAAUAAAAEAAAAAFAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_kn286")
 
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(447, 315)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pjb0i")
+animation = &"entry"
+autoplay = "entry"
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(563, 313)
+position = Vector2(532, 332)
 script = ExtResource("3_xq8qr")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
@@ -75,11 +147,18 @@ position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_jfe6y")
 
 [node name="Exit" type="Area2D" parent="."]
-position = Vector2(1596, 500)
+position = Vector2(1453, 510)
 script = ExtResource("5_uxkm7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
-position = Vector2(5, -1)
+position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_aggq2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Exit"]
+position = Vector2(-4, 5)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pjb0i")
+animation = &"exit"
+autoplay = "exit"
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
