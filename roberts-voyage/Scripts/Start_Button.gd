@@ -9,7 +9,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Player.currentHP == 0:
+		$Label.text = "Try Again"
+		Player.currentHP = 3
+		Player.maxHP = 3
+
+		Player.currentEnergy = 3
+		Player.maxEnergy = 3
+
+		Player.Items = {}
+
+		Player.Ability = ""
 
 
 func _on_pressed() -> void:
