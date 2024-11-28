@@ -1,5 +1,5 @@
 extends Node2D
-const EnemyScene = preload("res://Enemie/Enemie.tscn")
+const EnemyScene = preload("res://Scenes/Enemie.tscn")
 var wait_time = 1.0
 
 	
