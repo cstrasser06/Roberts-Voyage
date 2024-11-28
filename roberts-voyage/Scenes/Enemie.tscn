@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://6vroe4ctep4o"]
+[gd_scene load_steps=11 format=3 uid="uid://6vroe4ctep4o"]
 
 [ext_resource type="Script" path="res://Scripts/Enemie.gd" id="1_511u0"]
+[ext_resource type="Script" path="res://Scenes/enemy_details.gd" id="2_24thg"]
 [ext_resource type="Texture2D" uid="uid://bjndxbgi8rkxn" path="res://Sprites/Sprite_BallOfElectricity.png" id="2_do2i6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l46s8"]
@@ -48,7 +49,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dba0"]
-size = Vector2(69.75, 58.9167)
+size = Vector2(57, 49.3333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcxab"]
 size = Vector2(121, 122)
@@ -56,23 +57,24 @@ size = Vector2(121, 122)
 [node name="Enemie" type="Node2D"]
 script = ExtResource("1_511u0")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="EnemyCharacter" type="CharacterBody2D" parent="."]
+script = ExtResource("2_24thg")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyCharacter"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_3ippr")
 animation = &"attack_animation"
 autoplay = "default"
 
-[node name="MeleeHit" type="Area2D" parent="CharacterBody2D/AnimatedSprite2D"]
+[node name="MeleeHit" type="Area2D" parent="EnemyCharacter/AnimatedSprite2D"]
 position = Vector2(-0.666672, -0.333336)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AnimatedSprite2D/MeleeHit"]
-position = Vector2(0.333336, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCharacter/AnimatedSprite2D/MeleeHit"]
+position = Vector2(1.16667, -0.666664)
 shape = SubResource("RectangleShape2D_5dba0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCharacter"]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_pcxab")
 
-[connection signal="body_entered" from="CharacterBody2D/AnimatedSprite2D/MeleeHit" to="." method="_on_melee_hit_body_entered"]
+[connection signal="body_entered" from="EnemyCharacter/AnimatedSprite2D/MeleeHit" to="." method="_on_melee_hit_body_entered"]
