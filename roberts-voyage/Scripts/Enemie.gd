@@ -3,9 +3,9 @@ extends Node2D
 
 #ENEMIE MELEE ATTACK ------------------------------------------
 
-#func _on_melee_hit_body_entered(body: Node2D) -> void:
-#	if body.name == "PlayerCharacter":
-#		Player.currentHP -= 1
+func _on_melee_hit_body_entered(body: Node2D) -> void:
+	if body.name == "PlayerCharacter":
+		Player.currentHP -= 1
 
 
 

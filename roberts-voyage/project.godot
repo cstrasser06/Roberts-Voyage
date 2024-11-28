@@ -19,6 +19,7 @@ config/icon="res://Sprites/icon.svg"
 
 Player="*res://Scripts/Player.gd"
 RoomGeneration="*res://Scripts/RoomGeneration.gd"
+Enemyspawning="*res://Scripts/enemy_room.gd"
 
 [display]
 
