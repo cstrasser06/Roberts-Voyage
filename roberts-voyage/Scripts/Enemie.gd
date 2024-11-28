@@ -10,6 +10,7 @@ func _on_melee_hit_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(0.5).timeout
 		$CharacterBody2D/AnimatedSprite2D.play("default")
 	print(body.name)
+	print(Player.currentHP)
 
 
 
@@ -37,6 +38,7 @@ var wait_time_direction: float = 0.0
 func _ready():
 	randomize()
 	velocity = get_random_direction() * speed
+	RoomGeneration.enemyamount = RoomGeneration.enemyamount +1
 
 func _physics_process(delta):
 	position += velocity * delta

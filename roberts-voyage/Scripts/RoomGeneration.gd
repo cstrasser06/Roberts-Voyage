@@ -21,17 +21,20 @@ func increaselevel():
 
 func createnewroom():
 	currentscene.queue_free();
+	await get_tree().create_timer(1).timeout;
 	if(currentLevelinBiom == 3):
 		var load = load("res://Scenes/Rooms/Room_"+ currentBiom + characters[randi_range(0,0)]+"1.tscn");
 		currentscene = load.instantiate()
-		get_tree().root.call_deferred("add_child", currentscene)
+		get_tree().root.add_child(currentscene)
 		Enemyspawning.spawn_enemy()
-		enemyamount = enemyamount +1;
 	else:
 		var load = load("res://Scenes/Rooms/Room_"+ currentBiom + characters[randi_range(0,0)]+"0.tscn");
 		currentscene = load.instantiate()
-		get_tree().root.call_deferred("add_child", currentscene)
+		#get_tree().root.call_deferred("add_child", currentscene)
+		get_tree().root.add_child(currentscene)
 		Enemyspawning.spawn_enemy()
-		enemyamount = enemyamount +1;
+	
+
+
 func createnewbossroom():
 	pass
