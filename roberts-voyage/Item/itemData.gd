@@ -6,5 +6,4 @@ class_name ItemData
 @export_multiline var description: String = ""
 @export var stackable: bool = false
 @export var texture: AtlasTexture
-@export var coord_x: int
-@export var coord_y: int
+@export var coordinate:Vector2

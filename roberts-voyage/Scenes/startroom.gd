@@ -4,13 +4,17 @@ extends Node2D
 @onready var inventory_interface = $UI/InventoryInterface
 @onready var temp_inventory: Control = $UI/tempInventory
 @onready var player_inventory: PanelContainer = $UI/tempInventory/PlayerInventory
-@onready var pickable_item: Area2D = $Items/item_pickable
+@onready var pickable_item: Node2D = $Items/item_Pickable
 
 @onready var timer = Timer.new()
 @onready var timer_active = false
 
 func _ready():
+	inventory_interface.visible = false
+	temp_inventory.visible = false
 	add_child(timer)
+	add_child(pickable_item)
+	inventory_interface.setPlayerInventoryData(player.inventoryData)
 	timer.timeout.connect(visibility_temp)
 	for item in get_tree().get_nodes_in_group("Items"): 
 		item.connect("item_collected", Callable(self, "onItemCollected"))

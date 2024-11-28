@@ -8,16 +8,19 @@ signal inventoryInteract(inventoryData: InventoryData, index: int, button: int)
 @export var slot_datas: Array[SlotData]
 
 func onSlotClicked(index: int, button: int) -> void:
-	print("inventoryInteract")
+	print("inventoryInteract %s %s" %[index,button])
 	inventoryInteract.emit(self, index, button)
 
 func grabSlotData(index: int) -> SlotData:
+	print("index slot data %s" %index)
 	var slotData = slot_datas[index]
 	if slotData:
 		slot_datas[index] = null
 		inventoryUpdated.emit(self)
+		print("sleeeeeecteeeeddd")
 		return slotData
 	else:
+		print("hello null")
 		return null
 
 func dropSlotData(grabbedSlotData:SlotData, Index: int) -> SlotData:

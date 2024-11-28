@@ -27,4 +27,5 @@ layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="gui_input" from="MarginContainer/TextureRect" to="." method="_on_texture_rect_gui_input"]

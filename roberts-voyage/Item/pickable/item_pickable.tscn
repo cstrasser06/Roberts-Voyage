@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://big2l4nhqle8o"]
+
+[ext_resource type="Script" path="res://Item/pickable/item_Pickable.gd" id="1_1v3ns"]
+
+[node name="item_Pickable" type="Node2D"]
+script = ExtResource("1_1v3ns")
+
+[node name="picture" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

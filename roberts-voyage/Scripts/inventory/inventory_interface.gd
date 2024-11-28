@@ -8,8 +8,10 @@ var grabbedSlotData: SlotData
 func _physics_process(delta: float) -> void:
 	if grabbed_slot.visible:
 		grabbed_slot.global_position = get_global_mouse_position() + Vector2(0.5,0.5)
+		
 
 func setPlayerInventoryData(invData: InventoryData) -> void:
+	print("invDatawhynotworking")
 	if invData == null:
 		print("inventory is null")
 	else:
@@ -18,7 +20,7 @@ func setPlayerInventoryData(invData: InventoryData) -> void:
 
 	
 func onInventoryInteract(invData: InventoryData, index: int, button:int) -> void:
-	print("%s %s %s" %[invData, index, button])
+	print("invData.grabSlotData(index).itemData.name")
 	match[grabbedSlotData, button]:
 		[null, MOUSE_BUTTON_LEFT]:
 			grabbedSlotData = invData.grabSlotData(index)
@@ -28,7 +30,6 @@ func onInventoryInteract(invData: InventoryData, index: int, button:int) -> void
 			grabbedSlotData = invData.dropSingleSlotData(grabbedSlotData, index)
 		[_, MOUSE_BUTTON_LEFT]:
 			grabbedSlotData = invData.dropSlotData(grabbedSlotData, index)
-
 	updateGrabbedSlot()
 
 func updateGrabbedSlot() -> void:

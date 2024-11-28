@@ -18,10 +18,12 @@ func setSlotData(data: SlotData) -> void:
 		quantity_label.show()
 	else:
 		quantity_label.hide()
+	
 
-#funktion von node aus der seite rauskopiert
-func _on_texture_rect_gui_input(event: InputEvent) -> void:
+func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton \
-	and (event.button_index == MOUSE_BUTTON_LEFT\
-	or event.button_index == MOUSE_BUTTON_RIGHT) and event.is_pressed():
+			and (event.button_index == MOUSE_BUTTON_LEFT\
+			or event.button_index == MOUSE_BUTTON_RIGHT) \
+			and event.is_pressed():
 		slotClicked.emit(get_index(), event.button_index)
+		
