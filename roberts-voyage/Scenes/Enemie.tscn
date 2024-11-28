@@ -1,13 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://6vroe4ctep4o"]
+[gd_scene load_steps=10 format=3 uid="uid://6vroe4ctep4o"]
 
 [ext_resource type="Script" path="res://Scripts/Enemie.gd" id="1_511u0"]
 [ext_resource type="Texture2D" uid="uid://bjndxbgi8rkxn" path="res://Sprites/Sprite_BallOfElectricity.png" id="2_do2i6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_07wdo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l46s8"]
+atlas = ExtResource("2_do2i6")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6web"]
+atlas = ExtResource("2_do2i6")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plb7t"]
 atlas = ExtResource("2_do2i6")
 region = Rect2(0, 0, 50, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ovthx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_plx62"]
 atlas = ExtResource("2_do2i6")
 region = Rect2(50, 0, 50, 50)
 
@@ -15,10 +23,24 @@ region = Rect2(50, 0, 50, 50)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_07wdo")
+"texture": SubResource("AtlasTexture_l46s8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ovthx")
+"texture": SubResource("AtlasTexture_v6web")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l46s8")
+}],
+"loop": true,
+"name": &"attack_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plb7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plx62")
 }],
 "loop": true,
 "name": &"default",
@@ -39,6 +61,7 @@ script = ExtResource("1_511u0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_3ippr")
+animation = &"attack_animation"
 autoplay = "default"
 
 [node name="MeleeHit" type="Area2D" parent="CharacterBody2D/AnimatedSprite2D"]
