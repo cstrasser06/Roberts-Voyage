@@ -6,7 +6,10 @@ extends Node2D
 func _on_melee_hit_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerCharacter":
 		Player.currentHP -= 1
-
+		$CharacterBody2D/AnimatedSprite2D.play("attack_animation")
+		await get_tree().create_timer(0.5).timeout
+		$CharacterBody2D/AnimatedSprite2D.play("default")
+	print(body.name)
 
 
 
