@@ -52,4 +52,5 @@ shape = SubResource("RectangleShape2D_5dba0")
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_pcxab")
 
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="body_entered" from="CharacterBody2D/AnimatedSprite2D/MeleeHit" to="." method="_on_melee_hit_body_entered"]

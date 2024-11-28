@@ -114,6 +114,9 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aggq2"]
+size = Vector2(127, 177.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfe6y"]
 size = Vector2(127, 127)
 
@@ -179,9 +182,6 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aggq2"]
-size = Vector2(127, 177.5)
-
 [node name="RoomUa0" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -197,20 +197,6 @@ sprite_frames = SubResource("SpriteFrames_pjb0i")
 animation = &"exit"
 autoplay = "entry"
 
-[node name="PlayerCharacter" type="CharacterBody2D" parent="."]
-position = Vector2(532, 332)
-script = ExtResource("3_xq8qr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
-position = Vector2(-1, 1)
-shape = SubResource("RectangleShape2D_jfe6y")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter"]
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_telga")
-animation = &"robert_walk"
-autoplay = "robert_idle"
-
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(1453, 510)
 script = ExtResource("5_uxkm7")
@@ -225,5 +211,19 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_pjb0i")
 animation = &"exit"
 autoplay = "exit"
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="."]
+position = Vector2(532, 332)
+script = ExtResource("3_xq8qr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_jfe6y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_telga")
+animation = &"robert_walk"
+autoplay = "robert_idle"
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
