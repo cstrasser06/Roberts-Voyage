@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://6vroe4ctep4o"]
 
-[ext_resource type="Script" path="res://Enemie/Enemie.gd" id="1_af08d"]
+[ext_resource type="Script" path="res://Scripts/Enemie.gd" id="1_511u0"]
 [ext_resource type="Texture2D" uid="uid://bjndxbgi8rkxn" path="res://Sprites/Sprite_BallOfElectricity.png" id="2_do2i6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_07wdo"]
@@ -32,7 +32,7 @@ size = Vector2(69.75, 58.9167)
 size = Vector2(121, 122)
 
 [node name="Enemie" type="Node2D"]
-script = ExtResource("1_af08d")
+script = ExtResource("1_511u0")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
