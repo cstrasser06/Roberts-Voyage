@@ -62,3 +62,7 @@ func get_random_direction() -> Vector2:
 	return directions[randi() % directions.size()]
 
 # ---------------------------------------------------------------
+
+
+func _on_tree_exited() -> void:
+	RoomGeneration.enemyamount = RoomGeneration.enemyamount -1

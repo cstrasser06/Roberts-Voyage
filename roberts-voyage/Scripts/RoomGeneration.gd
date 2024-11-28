@@ -26,10 +26,12 @@ func createnewroom():
 		currentscene = load.instantiate()
 		get_tree().root.call_deferred("add_child", currentscene)
 		Enemyspawning.spawn_enemy()
+		enemyamount = enemyamount +1;
 	else:
 		var load = load("res://Scenes/Rooms/Room_"+ currentBiom + characters[randi_range(0,0)]+"0.tscn");
 		currentscene = load.instantiate()
 		get_tree().root.call_deferred("add_child", currentscene)
 		Enemyspawning.spawn_enemy()
+		enemyamount = enemyamount +1;
 func createnewbossroom():
 	pass
