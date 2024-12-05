@@ -1,6 +1,7 @@
 extends Node2D
 
 
+
 #ENEMIE MELEE ATTACK ------------------------------------------
 func _on_melee_hit_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerCharacter":
@@ -14,11 +15,15 @@ func _on_melee_hit_body_entered(body: Node2D) -> void:
 #ENEMIE MOVEMENT -----------------------------------------------
 @export var speed: float = randf_range(100.0, 150.0)
 var velocity: Vector2 = Vector2.ZERO
-
+var follow = false
 var change_direction_time: float = 2.0
 var time_passed: float = 0.0
 var wait_time: float = 0.0
 var wait_time_direction: float = 0.0
+
+var Robert
+var Robertposx
+var Robertposy
 
 func _ready():
 	randomize()
@@ -41,7 +46,13 @@ func _physics_process(delta):
 		velocity.x *= -1
 	if position.y < 0 or position.y > get_viewport_rect().size.y:
 		velocity.y *= -1
-
+		
+	# Follow Player ------------------------
+	if(follow == true):
+		Robertposx = Robert.position.x - position.x
+		Robertposy = Robert.position.y - position.y
+		velocity = Vector2(Robertposx, Robertposy) * 0.6
+		print(velocity)
 func get_random_direction() -> Vector2:
 	var directions = [
 		Vector2(1, 0),   
@@ -53,6 +64,11 @@ func get_random_direction() -> Vector2:
 
 # ---------------------------------------------------------------
 
-
 func _on_tree_exited() -> void:
 	RoomGeneration.enemyamount = RoomGeneration.enemyamount -1
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if(body.name == "PlayerCharacter"):
+		Robert = body
+		follow = true
+		
