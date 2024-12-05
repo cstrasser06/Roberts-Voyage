@@ -1,6 +1,6 @@
 extends Node
 
-var currentBiom = "U"
+var currentBiom = 0
 
 var Bioms = ["U", "S", "H"]
 
@@ -23,22 +23,34 @@ func initrooms(gameobj):
 func increaselevel():
 	currentLevelinBiom += 1;
 
+func increaseBiom():
+	currentLevelinBiom = 0;
+	currentBiom += 1
+
 func createnewroom():
 	currentscene.queue_free();
 	await get_tree().create_timer(1).timeout;
-	if(currentLevelinBiom == 3):
-		var load = load("res://Scenes/Rooms/Room_"+ currentBiom + characters[randi_range(0,0)]+"1.tscn");
+	if(currentLevelinBiom >= 3):
+		var load = load("res://Scenes/Rooms/Room_"+ Bioms[currentBiom] + characters[randi_range(0,0)]+"1.tscn");
 		currentscene = load.instantiate()
 		gobj.add_child(currentscene)
-		Enemyspawning.spawn_enemy()
+		for i in randi_range(1,4):
+			Enemyspawning.spawn_energyball()
 	else:
-		var load = load("res://Scenes/Rooms/Room_"+ currentBiom + characters[randi_range(0,0)]+"0.tscn");
+		var load = load("res://Scenes/Rooms/Room_"+ Bioms[currentBiom] + characters[randi_range(0,0)]+"0.tscn");
 		currentscene = load.instantiate()
 		#get_tree().root.call_deferred("add_child", currentscene)
 		gobj.add_child(currentscene)
-		Enemyspawning.spawn_enemy()
+		for i in randi_range(1,4):
+			Enemyspawning.spawn_energyball()
 	
 
 
 func createnewbossroom():
-	pass
+	currentscene.queue_free();
+	await get_tree().create_timer(1).timeout;
+	var load = load("res://Scenes/Rooms/Bossroom_"+ Bioms[currentBiom] + characters[randi_range(0,0)]+".tscn");
+	currentscene = load.instantiate()
+	#get_tree().root.call_deferred("add_child", currentscene)
+	gobj.add_child(currentscene)
+	Enemyspawning.spawn_bossU()

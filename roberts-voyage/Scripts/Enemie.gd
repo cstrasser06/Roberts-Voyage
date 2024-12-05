@@ -25,7 +25,7 @@ func _ready():
 	velocity = get_random_direction() * speed
 	RoomGeneration.enemyamount = RoomGeneration.enemyamount +1
 
-func _physics_process(delta):
+func _physics_process(delta: float):
 	position += velocity * delta
 	wait_time_direction = randf_range(1.0, 3.0)
 	time_passed += delta

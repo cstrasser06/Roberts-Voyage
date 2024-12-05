@@ -22,3 +22,19 @@ func _on_body_entered(body: Node2D) -> void:
 		RoomGeneration.increaselevel();
 		RoomGeneration.createnewroom();
 	
+
+
+func _on_body_to_boss_entered(body: Node2D) -> void:
+	if !enimies:
+		print("Bye")
+		body.queue_free();
+		RoomGeneration.increaselevel();
+		RoomGeneration.createnewbossroom();
+
+
+func _on_body_bossroom_exited_entered(body: Node2D) -> void:
+	if !enimies:
+		print("Bye")
+		body.queue_free();
+		RoomGeneration.increaseBiom();
+		RoomGeneration.createnewroom();
