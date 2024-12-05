@@ -19,3 +19,10 @@ func spawn_enemy():
 	get_tree().root.call_deferred("add_child", enemy)
 	
 	
+func _process(delta: float) -> void:
+	if Player.currentHP <=0:
+		for i in get_tree().root.get_children():
+			if i.name.contains("Enemie"):
+				i.queue_free();
+	
+	

@@ -114,6 +114,9 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aggq2"]
+size = Vector2(127, 177.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfe6y"]
 size = Vector2(127, 127)
 
@@ -179,11 +182,13 @@ animations = [{
 "speed": 8.0
 }]
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5d2u"]
 size = Vector2(104.25, 87)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aggq2"]
 size = Vector2(127, 177.5)
+
 
 [node name="RoomUa0" type="Node2D"]
 
@@ -199,6 +204,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_pjb0i")
 animation = &"exit"
 autoplay = "entry"
+
 
 [node name="PlayerCharacter" type="CharacterBody2D" parent="."]
 position = Vector2(532, 332)
@@ -235,5 +241,22 @@ sprite_frames = SubResource("SpriteFrames_pjb0i")
 animation = &"exit"
 autoplay = "exit"
 
+
 [connection signal="body_entered" from="PlayerCharacter/Area2D" to="PlayerCharacter" method="_on_area_2d_body_entered"]
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="."]
+position = Vector2(532, 332)
+script = ExtResource("3_xq8qr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_jfe6y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_telga")
+animation = &"robert_walk"
+autoplay = "robert_idle"
+
+
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
