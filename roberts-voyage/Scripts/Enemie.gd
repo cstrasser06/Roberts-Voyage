@@ -2,29 +2,16 @@ extends Node2D
 
 
 #ENEMIE MELEE ATTACK ------------------------------------------
-
 func _on_melee_hit_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerCharacter":
 		Player.currentHP -= 1
-		$CharacterBody2D/AnimatedSprite2D.play("attack_animation")
+		$EnemyCharacter/AnimatedSprite2D.play("attack_animation")
 		await get_tree().create_timer(0.5).timeout
 		$CharacterBody2D/AnimatedSprite2D.play("default")
 
-
-
-
-
-
-
-
-
-
 # --------------------------------------------------------------
 
-
-
 #ENEMIE MOVEMENT -----------------------------------------------
-
 @export var speed: float = randf_range(100.0, 150.0)
 var velocity: Vector2 = Vector2.ZERO
 

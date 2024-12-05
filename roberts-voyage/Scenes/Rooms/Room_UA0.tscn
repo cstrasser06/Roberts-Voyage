@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://csuv28mguojdm"]
+[gd_scene load_steps=29 format=4 uid="uid://csuv28mguojdm"]
 
 [ext_resource type="Texture2D" uid="uid://bvsxj2x0rpy82" path="res://Sprites/Sprite-Floors-Level1.png" id="1_h6snw"]
 [ext_resource type="Texture2D" uid="uid://bl0rf6ll0klx1" path="res://Sprites/Sprite-Walls-Level1.png" id="2_bs1gn"]
@@ -182,6 +182,14 @@ animations = [{
 "speed": 8.0
 }]
 
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5d2u"]
+size = Vector2(104.25, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aggq2"]
+size = Vector2(127, 177.5)
+
+
 [node name="RoomUa0" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -196,6 +204,27 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_pjb0i")
 animation = &"exit"
 autoplay = "entry"
+
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="."]
+position = Vector2(532, 332)
+script = ExtResource("3_xq8qr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_jfe6y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_telga")
+animation = &"robert_walk"
+autoplay = "robert_idle"
+
+[node name="Area2D" type="Area2D" parent="PlayerCharacter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/Area2D"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_x5d2u")
 
 [node name="Exit" type="Area2D" parent="."]
 position = Vector2(1453, 510)
@@ -212,6 +241,9 @@ sprite_frames = SubResource("SpriteFrames_pjb0i")
 animation = &"exit"
 autoplay = "exit"
 
+
+[connection signal="body_entered" from="PlayerCharacter/Area2D" to="PlayerCharacter" method="_on_area_2d_body_entered"]
+
 [node name="PlayerCharacter" type="CharacterBody2D" parent="."]
 position = Vector2(532, 332)
 script = ExtResource("3_xq8qr")
@@ -225,5 +257,6 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_telga")
 animation = &"robert_walk"
 autoplay = "robert_idle"
+
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
