@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready() -> void:
-	RoomGeneration.initrooms()
+	RoomGeneration.initrooms(self)
 
 func _process(delta: float) -> void:
 	print(Player.currentHP)
