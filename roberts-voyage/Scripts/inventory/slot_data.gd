@@ -23,6 +23,8 @@ func canMergeWithSameItem(slotData: SlotData) -> bool:
 
 func mergeWithSameItem(slotData: SlotData) -> void:
 		quantity += slotData.quantity
+		print(slotData.quantity)
+		print(quantity)
 	
 func createSingleSlotData() -> SlotData:
 	var newSlotData = duplicate()

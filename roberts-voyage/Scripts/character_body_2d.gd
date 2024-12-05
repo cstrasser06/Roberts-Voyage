@@ -19,3 +19,26 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+
+func appendItem(item:ItemData) -> void:
+	print("method called")
+	print(item.name)
+	var currSlot = SlotData.new()
+	currSlot.quantity = 1
+	currSlot.itemData = item
+	var count = 0
+	for slot in inventoryData.slot_datas:
+		if slot != null:
+			print("called slot")
+			if slot.canMergeWithSameItem(currSlot) and count == 0:
+				print("mergedSlot")
+				slot.mergeWithSameItem(currSlot)
+				count+=1
+	for slot in inventoryData.slot_datas:
+		if slot == null and count == 0:
+			print("adding new book")
+			slot = SlotData.new()
+			slot.itemData = item
+			slot.quantity = 1
+			count+=1
+	inventoryData.inventoryUpdated.emit(inventoryData)

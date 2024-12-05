@@ -11,7 +11,6 @@ func _physics_process(delta: float) -> void:
 		
 
 func setPlayerInventoryData(invData: InventoryData) -> void:
-	print("invDatawhynotworking")
 	if invData == null:
 		print("inventory is null")
 	else:

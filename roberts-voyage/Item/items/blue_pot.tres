@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://d3g3dw3mbcuxc"]
+
+[ext_resource type="Script" path="res://Item/itemData.gd" id="1_ws43k"]
+[ext_resource type="Texture2D" uid="uid://y71w3pfbnrkn" path="res://Item/dummy_items.png" id="2_tvpr6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdd7j"]
+atlas = ExtResource("2_tvpr6")
+region = Rect2(0, 175, 120, 175)
+
+[resource]
+script = ExtResource("1_ws43k")
+name = "Blue Potion"
+description = "Healing 2x"
+stackable = true
+texture = SubResource("AtlasTexture_xdd7j")

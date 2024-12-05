@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/inventory/inventory_interface.gd" id="6_h2ixt"]
 [ext_resource type="PackedScene" uid="uid://bmpuhojy3fx5s" path="res://Inventory/slot.tscn" id="9_u3r8f"]
 [ext_resource type="Script" path="res://Scripts/inventory/temp_inventory.gd" id="10_hpn83"]
-[ext_resource type="PackedScene" uid="uid://big2l4nhqle8o" path="res://Item/pickable/item_pickable.tscn" id="11_s70bl"]
+[ext_resource type="PackedScene" uid="uid://cxslqub3k1620" path="res://Item/pickable/item_pickable.tscn" id="11_s70bl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nylrj"]
 texture = ExtResource("3_whdkv")
@@ -163,6 +163,6 @@ grow_horizontal = 2
 
 [node name="Items" type="CanvasLayer" parent="."]
 
-[node name="item_Pickable" parent="Items" instance=ExtResource("11_s70bl")]
+[node name="Area2D" parent="Items" instance=ExtResource("11_s70bl")]
 
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
