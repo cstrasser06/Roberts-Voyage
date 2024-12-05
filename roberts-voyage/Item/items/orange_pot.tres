@@ -7,5 +7,6 @@
 script = ExtResource("1_iv21d")
 name = "Orange Potion"
 description = "run faster"
-stackable = true
+stackable = false
 texture = ExtResource("2_12bjh")
+coordinate = Vector2(0, 0)
