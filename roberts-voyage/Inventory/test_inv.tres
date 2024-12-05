@@ -23,4 +23,3 @@ quantity = 10
 [resource]
 script = ExtResource("1_6f8ib")
 slot_datas = Array[ExtResource("2_56mdg")]([SubResource("Resource_1knku"), SubResource("Resource_c1wbv"), SubResource("Resource_621rt"), null, null])
-

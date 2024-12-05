@@ -4,7 +4,8 @@ extends Area2D
 @onready var item_sprite: Sprite2D = $Sprite2D
 @onready var item_collision: CollisionShape2D = $CollisionShape2D
 @onready var area_item: Area2D = $item_pickable
-@onready var player: CharacterBody2D = $"../../../Player"
+
+#@onready var player: CharacterBody2D = $"../../../Player"
 
 signal item_collected(item)
 var rng = RandomNumberGenerator.new()
