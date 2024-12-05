@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://6vroe4ctep4o"]
+
+[ext_resource type="Script" path="res://Scripts/Enemie.gd" id="1_511u0"]
+[ext_resource type="Script" path="res://Scenes/enemy_details.gd" id="2_24thg"]
+[ext_resource type="Texture2D" uid="uid://bjndxbgi8rkxn" path="res://Sprites/Sprite_BallOfElectricity.png" id="2_do2i6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l46s8"]
+atlas = ExtResource("2_do2i6")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6web"]
+atlas = ExtResource("2_do2i6")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plb7t"]
+atlas = ExtResource("2_do2i6")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plx62"]
+atlas = ExtResource("2_do2i6")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ippr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l46s8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6web")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l46s8")
+}],
+"loop": true,
+"name": &"attack_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plb7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plx62")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dba0"]
+size = Vector2(57, 49.3333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcxab"]
+size = Vector2(121, 122)
+
+[node name="Enemie" type="Node2D"]
+script = ExtResource("1_511u0")
+
+[node name="EnemyCharacter" type="CharacterBody2D" parent="."]
+script = ExtResource("2_24thg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyCharacter"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_3ippr")
+animation = &"attack_animation"
+autoplay = "default"
+
+[node name="MeleeHit" type="Area2D" parent="EnemyCharacter/AnimatedSprite2D"]
+position = Vector2(-0.666672, -0.333336)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCharacter/AnimatedSprite2D/MeleeHit"]
+position = Vector2(1.16667, -0.666664)
+shape = SubResource("RectangleShape2D_5dba0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyCharacter"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_pcxab")
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="body_entered" from="EnemyCharacter/AnimatedSprite2D/MeleeHit" to="." method="_on_melee_hit_body_entered"]
