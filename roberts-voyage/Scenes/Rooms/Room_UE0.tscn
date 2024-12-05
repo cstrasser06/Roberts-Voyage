@@ -1,0 +1,239 @@
+[gd_scene load_steps=29 format=4 uid="uid://cud34shft611y"]
+
+[ext_resource type="Texture2D" uid="uid://bvsxj2x0rpy82" path="res://Sprites/Sprite-Floors-Level1.png" id="1_01fwg"]
+[ext_resource type="Texture2D" uid="uid://bl0rf6ll0klx1" path="res://Sprites/Sprite-Walls-Level1.png" id="2_s6fqs"]
+[ext_resource type="Texture2D" uid="uid://b1bqy2gthi6ms" path="res://Sprites/Sprite-Portal.png" id="3_3xlf3"]
+[ext_resource type="Script" path="res://Scripts/Player_character.gd" id="4_itit8"]
+[ext_resource type="Texture2D" uid="uid://bah4crrf00eg2" path="res://Sprites/Sprite-Robert.png" id="5_tdokl"]
+[ext_resource type="Script" path="res://Scripts/exit.gd" id="6_i6230"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_buo3q"]
+texture = ExtResource("1_01fwg")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3cxhk"]
+texture = ExtResource("2_s6fqs")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+12:0/0 = 0
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, -35.3553, -50, -33.9411)
+
+[sub_resource type="TileSet" id="TileSet_kn286"]
+tile_size = Vector2i(100, 100)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_buo3q")
+sources/1 = SubResource("TileSetAtlasSource_3cxhk")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yjwm"]
+atlas = ExtResource("3_3xlf3")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83dxe"]
+atlas = ExtResource("3_3xlf3")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgq4c"]
+atlas = ExtResource("3_3xlf3")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf7lo"]
+atlas = ExtResource("3_3xlf3")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvnm3"]
+atlas = ExtResource("3_3xlf3")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dwwe"]
+atlas = ExtResource("3_3xlf3")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lay5v"]
+atlas = ExtResource("3_3xlf3")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjb0i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yjwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83dxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgq4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf7lo")
+}],
+"loop": true,
+"name": &"entry",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvnm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dwwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lay5v")
+}],
+"loop": true,
+"name": &"exit",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfe6y"]
+size = Vector2(127, 127)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y12vr"]
+atlas = ExtResource("5_tdokl")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08k5t"]
+atlas = ExtResource("5_tdokl")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boclk"]
+atlas = ExtResource("5_tdokl")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf5a1"]
+atlas = ExtResource("5_tdokl")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d81v"]
+atlas = ExtResource("5_tdokl")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jccx8"]
+atlas = ExtResource("5_tdokl")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo7cp"]
+atlas = ExtResource("5_tdokl")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_telga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y12vr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08k5t")
+}],
+"loop": true,
+"name": &"robert_idle",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boclk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf5a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d81v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jccx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo7cp")
+}],
+"loop": true,
+"name": &"robert_walk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x5d2u"]
+size = Vector2(104.25, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aggq2"]
+size = Vector2(127, 177.5)
+
+[node name="RoomUe0" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAQAJAAAAAAABAAAAAQAEAAAAAAACAAAAAQAEAAAAAAADAAAAAQAEAAAAAAAEAAAAAQAEAAAAAAAFAAAAAQAJAAAAAAAGAAAAAQAKAAAAAAAHAAAAAQAKAAAAAAAIAAAAAQAKAAAAAAAJAAAAAQAKAAAAAAAKAAAAAQAJAAAAAAALAAAAAQAEAAAAAAAMAAAAAQAEAAAAAAANAAAAAQAEAAAAAAAOAAAAAQAEAAAAAAAPAAAAAQAMAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAACAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAEAAAAAAAOAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAALAAgAAAABAAAAAAAKAAgAAAAAAAAAAAAJAAgAAAABAAAAAGAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAABAAAAAGAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAADAAcAAAAAAAAAAAACAAcAAAAAAAAAAAABAAcAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAEAAAAAFABAAgAAAAEAAAAAAACAAgAAAAEAAAAAFAAAAYAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAADAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAADAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAJAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAALAAEAAAAAAAAAAAAMAAEAAAAAAAAAAAANAAEAAAAAAAAAAAAOAAEAAAABAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAACAAAAAAANAAcAAAAAAAAAAAAMAAcAAAAEAAAAAAALAAcAAAACAAAAACAKAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAHAAcAAAACAAAAAAAGAAcAAAAAAAAAAAAFAAcAAAADAAAAAAAEAAcAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAABAAAAAAAEAAYAAAAEAAAAADAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAABAAAAABAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAADAAAAAAANAAYAAAAAAAAAAAANAAUAAAAAAAAAAAANAAQAAAAAAAAAAAANAAMAAAAAAAAAAAANAAIAAAAAAAAAAAAMAAIAAAADAAAAAAALAAIAAAAAAAAAAAAKAAIAAAAAAAAAAAAJAAIAAAAAAAAAAAAIAAIAAAADAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAACAAAAAAACAAIAAAADAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAADAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAMAAAAEAAAAAAAMAAMAAAAEAAAAAFAMAAQAAAADAAAAAAALAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAQAAAADAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAEAAAAAAAEAAUAAAABAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAADAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_kn286")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(447, 315)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pjb0i")
+animation = &"exit"
+autoplay = "entry"
+
+[node name="PlayerCharacter" type="CharacterBody2D" parent="."]
+position = Vector2(532, 332)
+script = ExtResource("4_itit8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_jfe6y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_telga")
+animation = &"robert_walk"
+autoplay = "robert_idle"
+
+[node name="Area2D" type="Area2D" parent="PlayerCharacter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacter/Area2D"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_x5d2u")
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(1453, 510)
+script = ExtResource("6_i6230")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_aggq2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Exit"]
+position = Vector2(-4, 5)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pjb0i")
+animation = &"entry"
+autoplay = "entry"
+
+[connection signal="body_entered" from="PlayerCharacter/Area2D" to="PlayerCharacter" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
