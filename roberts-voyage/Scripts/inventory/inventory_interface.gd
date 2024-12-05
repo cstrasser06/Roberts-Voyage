@@ -26,7 +26,7 @@ func onInventoryInteract(invData: InventoryData, index: int, button:int) -> void
 		[null, MOUSE_BUTTON_RIGHT]:
 			pass
 		[_, MOUSE_BUTTON_RIGHT]:
-			grabbedSlotData = invData.dropSingleSlotData(grabbedSlotData, index)
+			grabbedSlotData = invData.dropItem(grabbedSlotData, index)
 		[_, MOUSE_BUTTON_LEFT]:
 			grabbedSlotData = invData.dropSlotData(grabbedSlotData, index)
 	updateGrabbedSlot()

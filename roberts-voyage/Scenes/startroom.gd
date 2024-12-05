@@ -9,6 +9,8 @@ extends Node2D
 @onready var timer = Timer.new()
 @onready var timer_active = false
 
+signal dropItemSlot()
+
 func _ready():
 	inventory_interface.visible = false
 	temp_inventory.visible = false
@@ -16,10 +18,7 @@ func _ready():
 	add_child(pickable_item)
 	inventory_interface.setPlayerInventoryData(player.inventoryData)
 	timer.timeout.connect(visibility_temp)
-	for item in get_tree().get_nodes_in_group("Items"): 
-		item.connect("item_collected", Callable(self, "onItemCollected"))
-	
-	
+	connect("dropItemSlot",Callable(player,"dropItem"))
 
 func _process(delta) -> void:
 	if Input.is_action_just_pressed("OPEN_INVENTORY"):
@@ -37,15 +36,12 @@ func _process(delta) -> void:
 			timer.stop()
 			timer_active = false
 		print(inventory_interface.visible)
+	if Input.is_action_just_released("DROPITEM"):
+		dropItemSlot.emit()
+	
+		
 
 func visibility_temp() -> void:
 	temp_inventory.visible = false
 	timer_active = false
 	
-
-func onItemCollected(item_name):
-	match item_name:
-		"apple":
-			print("apple collected")
-		"green book":
-			print("book collected")

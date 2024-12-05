@@ -1,10 +1,13 @@
 extends CharacterBody2D
 @export var inventoryData: InventoryData
+@onready var pickItem: Area2D = $"../UI/Items/Area2D"
 
 const SPEED = 300.0
+signal sendDeletedItem(item:ItemData)
 
 func _ready() -> void:
 	inventoryData = preload("res://Inventory/test_inv.tres")
+	connect("sendDeletedItem", Callable(pickItem, "showDroppedItem"))
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -23,22 +26,23 @@ func _physics_process(delta: float) -> void:
 func appendItem(item:ItemData) -> void:
 	print("method called")
 	print(item.name)
+	var count = 0
 	var currSlot = SlotData.new()
 	currSlot.quantity = 1
 	currSlot.itemData = item
-	var count = 0
-	for slot in inventoryData.slot_datas:
-		if slot != null:
-			print("called slot")
-			if slot.canMergeWithSameItem(currSlot) and count == 0:
-				print("mergedSlot")
-				slot.mergeWithSameItem(currSlot)
-				count+=1
 	for slot in inventoryData.slot_datas:
 		if slot == null and count == 0:
-			print("adding new book")
-			slot = SlotData.new()
-			slot.itemData = item
-			slot.quantity = 1
-			count+=1
+			inventoryData.slot_datas.push_front(currSlot)
+			count += 1
+		else:
+			print("slots full")
+	inventoryData.inventoryUpdated.emit(inventoryData)
+	
+func dropItem() -> void:
+	var remItem = inventoryData.slot_datas[0].itemData
+	sendDeletedItem.emit(remItem)
+	inventoryData.slot_datas.remove_at(0)
+	for i in range(1,len(inventoryData.slot_datas)):
+		if(i < len(inventoryData.slot_datas)-1):
+			inventoryData.slot_datas[i-1] = inventoryData.slot_datas[i]
 	inventoryData.inventoryUpdated.emit(inventoryData)

@@ -7,12 +7,6 @@ const MAX_STACK_SIZE: int = 64
 @export var itemData: ItemData
 @export_range(1, MAX_STACK_SIZE) var quantity = 1: set = setQuantity
 
-func canMergeWithSingleItem(slotData: SlotData) -> bool:
-	if slotData.itemData.name == itemData.name and slotData.itemData.stackable \
-	 and slotData.quantity < MAX_STACK_SIZE:
-		return true
-	else:
-		return false
 
 func canMergeWithSameItem(slotData: SlotData) -> bool:
 	if slotData.itemData.name == itemData.name and slotData.itemData.stackable \
@@ -21,10 +15,6 @@ func canMergeWithSameItem(slotData: SlotData) -> bool:
 	else:
 		return false
 
-func mergeWithSameItem(slotData: SlotData) -> void:
-		quantity += slotData.quantity
-		print(slotData.quantity)
-		print(quantity)
 	
 func createSingleSlotData() -> SlotData:
 	var newSlotData = duplicate()

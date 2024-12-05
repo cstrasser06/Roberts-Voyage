@@ -23,11 +23,8 @@ func dropSlotData(grabbedSlotData:SlotData, Index: int) -> SlotData:
 	var slotData = slot_datas[Index]
 	
 	var returnSlotData: SlotData
-	if slotData and slotData.canMergeWithSameItem(grabbedSlotData):
-		slotData.mergeWithSameItem(grabbedSlotData)
-	else:
-		slot_datas[Index] = grabbedSlotData
-		returnSlotData = slotData
+	slot_datas[Index] = grabbedSlotData
+	returnSlotData = slotData
 	
 	inventoryUpdated.emit(self)
 	return returnSlotData
@@ -36,8 +33,6 @@ func dropSingleSlotData(grabbedSlotData: SlotData, Index: int) -> SlotData:
 	var newSlotData = slot_datas[Index]
 	if not newSlotData:
 		slot_datas[Index] = grabbedSlotData.createSingleSlotData()
-	elif newSlotData.canMergeWithSingleItem(grabbedSlotData):
-		newSlotData.mergeWithSameItem(grabbedSlotData.createSingleSlotData())
 	inventoryUpdated.emit(self)
 	
 	if grabbedSlotData.quantity > 0:
