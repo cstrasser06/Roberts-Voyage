@@ -3,7 +3,6 @@ extends Node2D
 
 func _ready() -> void:
 	RoomGeneration.initrooms(self)
-
 func _process(delta: float) -> void:
 	#print(Player.currentHP)
 	if Player.currentHP <= 0:

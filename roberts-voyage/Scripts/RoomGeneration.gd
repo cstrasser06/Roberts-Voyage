@@ -29,11 +29,17 @@ func increaseBiom():
 
 func createnewroom():
 	currentscene.queue_free();
+	
 	await get_tree().create_timer(1).timeout;
 	if(currentLevelinBiom >= 3):
 		var load = load("res://Scenes/Rooms/Room_"+ Bioms[currentBiom] + characters[randi_range(0,0)]+"1.tscn");
 		currentscene = load.instantiate()
 		gobj.add_child(currentscene)
+		
+		load = load("res://Scenes/BarStats.tscn")
+		var scene = load.instantiate()
+		currentscene.add_child(scene)
+		
 		for i in randi_range(1,3):
 			Enemyspawning.spawn_energyball()
 	else:
@@ -41,6 +47,11 @@ func createnewroom():
 		currentscene = load.instantiate()
 		#get_tree().root.call_deferred("add_child", currentscene)
 		gobj.add_child(currentscene)
+		
+		load = load("res://Scenes/BarStats.tscn")
+		var scene = load.instantiate()
+		currentscene.add_child(scene)
+		
 		for i in randi_range(1,3):
 			Enemyspawning.spawn_energyball()
 			
