@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://coy11hyw3orjp"
+path="res://.godot/imported/itemIcons.png-cffc09cb38a7022cc2fea8d1973d9c08.image"
+
+[deps]
+
+source_file="res://Item/itemIcons.png"
+dest_files=["res://.godot/imported/itemIcons.png-cffc09cb38a7022cc2fea8d1973d9c08.image"]
+
+[params]
+

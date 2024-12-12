@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://soh3nf3mmoub"]
+[gd_scene load_steps=18 format=4 uid="uid://soh3nf3mmoub"]
 
 [ext_resource type="Script" path="res://Scripts/Player_character.gd" id="1_clj8q"]
 [ext_resource type="Script" path="res://Scripts/startroom (2).gd" id="1_u1ahy"]
@@ -7,8 +7,10 @@
 [ext_resource type="Script" path="res://Scripts/exit.gd" id="3_chh11"]
 [ext_resource type="Texture2D" uid="uid://bvsxj2x0rpy82" path="res://Sprites/Sprite-Floors-Level1.png" id="3_whdkv"]
 [ext_resource type="PackedScene" uid="uid://bj0k6l15qt7ir" path="res://Inventory/inventory.tscn" id="5_mokh6"]
-[ext_resource type="Script" path="res://Inventory/inventory_interface.gd" id="6_h2ixt"]
+[ext_resource type="Script" path="res://Scripts/inventory/inventory_interface.gd" id="6_h2ixt"]
 [ext_resource type="PackedScene" uid="uid://bmpuhojy3fx5s" path="res://Inventory/slot.tscn" id="9_u3r8f"]
+[ext_resource type="Script" path="res://Scripts/inventory/temp_inventory.gd" id="10_hpn83"]
+[ext_resource type="PackedScene" uid="uid://cxslqub3k1620" path="res://Item/pickable/item_pickable.tscn" id="11_s70bl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fppgj"]
 texture = ExtResource("3_whdkv")
@@ -91,6 +93,27 @@ shape = SubResource("RectangleShape2D_w56il")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="tempInventory" type="Control" parent="UI"]
+modulate = Color(1, 1, 1, 0.694118)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
+size_flags_vertical = 0
+script = ExtResource("10_hpn83")
+
+[node name="PlayerInventory" parent="UI/tempInventory" instance=ExtResource("5_mokh6")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_right = 25.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
 [node name="InventoryInterface" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 15
@@ -119,22 +142,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -30.0
-offset_right = 30.0
-offset_bottom = 30.0
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="grabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("9_u3r8f")]
 clip_contents = true
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -32.0
-offset_right = 32.0
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_i0707")
 
+[node name="Items" type="CanvasLayer" parent="UI"]
+
+[node name="Area2D" parent="UI/Items" instance=ExtResource("11_s70bl")]
+
 [connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]
-[connection signal="gui_input" from="UI/InventoryInterface/grabbedSlot" to="UI/InventoryInterface/grabbedSlot" method="_on_gui_input"]

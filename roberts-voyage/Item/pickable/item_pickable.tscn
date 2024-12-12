@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxslqub3k1620"]
+
+[ext_resource type="Script" path="res://Item/pickable/item_pickable.gd" id="1_skr01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f58u5"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x3gl"]
+
+[node name="item_pickable" type="Area2D"]
+script = ExtResource("1_skr01")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f58u5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(112, 17)
+texture = SubResource("AtlasTexture_1x3gl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
