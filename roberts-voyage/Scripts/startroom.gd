@@ -11,6 +11,17 @@ extends Node
 
 
 func _ready() -> void:
+	var load = load("res://Scenes/ui.tscn")
+	var currentscene = load.instantiate()
+	self.add_child(currentscene)
+	player = $PlayerCharacter
+	inventory_interface = $"UI/InventoryInterface"
+	temp_inventory = $UI/tempInventory
+	player_inventory = $UI/tempInventory/PlayerInventory
+	pickableItem = $UI/Items/Area2D
+
+	timer = Timer.new()
+	timer_active = false
 	inventory_interface.visible = false
 	temp_inventory.visible = false
 	add_child(timer)
@@ -39,3 +50,8 @@ func visibility_temp() -> void:
 	temp_inventory.visible = false
 	timer_active = false
 	
+
+'''func _on_ready() -> void:
+	var load = load("res://Scenes/ui.tscn")
+	var currentscene = load.instantiate()
+	self.add_child(currentscene)'''

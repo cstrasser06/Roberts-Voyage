@@ -6,7 +6,6 @@ extends Area2D
 @onready var area_item: Area2D = $item_pickable
 @onready var inventory_data: InventoryData
 
-
 @onready var player: CharacterBody2D = $"../../../PlayerCharacter"
 
 signal item_collected(item:ItemData)
@@ -18,8 +17,8 @@ func _ready():
 	
 	for i in range(1,5):
 		initialiseItem()
-	'''connect("item_collected", Callable(inventory_data, "appendItem"))
-	connect("getInventory", Callable())
+	connect("item_collected", Callable(inventory_data, "appendItem"))
+	'''connect("getInventory", Callable())
 	connect("dropItemSlot",Callable(player.inventoryData,"dropItem"))
 	if Input.is_action_just_released("DROPITEM"):
 		dropItemSlot.emit(player.inventoryData)'''

@@ -6,11 +6,11 @@ signal inventoryUpdated(inventoryData: InventoryData)
 signal inventoryInteract(inventoryData: InventoryData, index: int, button: int)
 
 @export var slot_datas: Array[SlotData]
-signal dropItemGrid(remItem:SlotData)
+signal showDroppedItemGrid(remItem:SlotData)
 
 func onSlotClicked(index: int, button: int) -> void:
 	inventoryInteract.emit(self, index, button)
-	#connect("dropItemGrid", Callable(pickItem, "dropItemGrid"))
+	#connect("showDroppedItemGrid", Callable(, ""))
 
 func grabSlotData(index: int) -> SlotData:
 	var slotData = slot_datas[index]
@@ -40,3 +40,7 @@ func dropSingleSlotData(grabbedSlotData: SlotData, Index: int) -> SlotData:
 	if grabbedSlotData.quantity > 0:
 		return grabbedSlotData
 	return null
+	
+func dropItem(grabbedSlotData:SlotData, index:int):
+	showDroppedItemGrid.emit(grabbedSlotData)
+	print(grabbedSlotData.itemData.name)
