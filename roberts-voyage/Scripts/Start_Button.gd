@@ -20,6 +20,13 @@ func _process(delta: float) -> void:
 		Player.Items = {}
 
 		Player.Ability = ""
+		
+		RoomGeneration.currentBiom = 0
+
+
+		RoomGeneration.currentLevelinBiom = 0
+
+		RoomGeneration.enemyamount = 0
 
 
 func _on_pressed() -> void:

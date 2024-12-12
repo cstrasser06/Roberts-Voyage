@@ -72,10 +72,8 @@ func _physics_process(delta: float) -> void:
 
 # MELEE ON ENEMIE ----------------------------	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print(body.name)
 	if canattack == true && body.name == "EnemyCharacter":
 		body.health -= 1
-		print(body.health)
 # ------------------------------------------------
 			
 

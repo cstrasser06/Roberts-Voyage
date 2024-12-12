@@ -1,23 +1,23 @@
 [gd_scene load_steps=12 format=3 uid="uid://6vroe4ctep4o"]
 
-[ext_resource type="Script" path="res://Scripts/Enemie.gd" id="1_511u0"]
-[ext_resource type="Script" path="res://Scenes/enemy_details.gd" id="2_24thg"]
-[ext_resource type="Texture2D" uid="uid://bjndxbgi8rkxn" path="res://Sprites/Sprite_BallOfElectricity.png" id="2_do2i6"]
+[ext_resource type="Script" path="res://Scripts/Enemie.gd" id="1_mhr40"]
+[ext_resource type="Script" path="res://Scenes/enemy_details.gd" id="2_vvstx"]
+[ext_resource type="Texture2D" uid="uid://bjndxbgi8rkxn" path="res://Sprites/Sprite_BallOfElectricity.png" id="3_4tiua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l46s8"]
-atlas = ExtResource("2_do2i6")
+atlas = ExtResource("3_4tiua")
 region = Rect2(150, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6web"]
-atlas = ExtResource("2_do2i6")
+atlas = ExtResource("3_4tiua")
 region = Rect2(200, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_plb7t"]
-atlas = ExtResource("2_do2i6")
+atlas = ExtResource("3_4tiua")
 region = Rect2(0, 0, 50, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_plx62"]
-atlas = ExtResource("2_do2i6")
+atlas = ExtResource("3_4tiua")
 region = Rect2(50, 0, 50, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3ippr"]
@@ -58,10 +58,10 @@ size = Vector2(121, 122)
 size = Vector2(417, 339)
 
 [node name="Enemie" type="Node2D"]
-script = ExtResource("1_511u0")
+script = ExtResource("1_mhr40")
 
 [node name="EnemyCharacter" type="CharacterBody2D" parent="."]
-script = ExtResource("2_24thg")
+script = ExtResource("2_vvstx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyCharacter"]
 scale = Vector2(3, 3)
