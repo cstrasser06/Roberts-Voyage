@@ -22,7 +22,6 @@ func createSingleSlotData() -> SlotData:
 	quantity -=1
 	return newSlotData
 
-
 func setQuantity(value: int):
 	quantity = value
 	if quantity > 1 and not itemData.stackable:

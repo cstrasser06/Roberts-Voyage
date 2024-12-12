@@ -6,12 +6,11 @@ signal inventoryUpdated(inventoryData: InventoryData)
 signal inventoryInteract(inventoryData: InventoryData, index: int, button: int)
 
 @export var slot_datas: Array[SlotData]
-#@onready var pickItem: Area2D = $"../UI/Items/Area2D"
-#@onready var item_pickable: Area2D = $"."
+signal showDroppedItemGrid(remItem:SlotData)
 
 func onSlotClicked(index: int, button: int) -> void:
 	inventoryInteract.emit(self, index, button)
-	#connect("sendDeletedItem", Callable(pickItem, "showDroppedItem"))
+	#connect("showDroppedItemGrid", Callable(, ""))
 
 func grabSlotData(index: int) -> SlotData:
 	var slotData = slot_datas[index]
@@ -41,33 +40,7 @@ func dropSingleSlotData(grabbedSlotData: SlotData, Index: int) -> SlotData:
 	if grabbedSlotData.quantity > 0:
 		return grabbedSlotData
 	return null
-
-
-
-func appendItem(item:ItemData) -> void:
-	print("method called")
-	print(item.name)
-	var count = 0
-	var currSlot = SlotData.new()
-	currSlot.quantity = 1
-	currSlot.itemData = item
-	for slot in slot_datas:
-		if slot == null and count == 0:
-			slot_datas.push_front(currSlot)
-			count += 1
-		else:
-			print("slots full")
-		inventoryUpdated.emit(self)
-		
-
-
-
-func dropItem() -> void:
-	var remItem = slot_datas[0].itemData
-	#sendDeletedItem.emit(remItem)
-	slot_datas.remove_at(0)
-	for i in range(1,len(slot_datas)):
-		if(i < len(slot_datas)-1):
-			slot_datas[i-1] = slot_datas[i]
-	inventoryUpdated.emit(self)
 	
+func dropItem(grabbedSlotData:SlotData, index:int):
+	showDroppedItemGrid.emit(grabbedSlotData)
+	print(grabbedSlotData.itemData.name)

@@ -4,11 +4,13 @@ const Slot = preload("res://Inventory/slot.tscn")
 
 @onready var item_grid: GridContainer = $MarginContainer/ItemGrid
 @onready var quantity_label: Label = $QuantityLabel
-
+@onready var inventoryData = preload("res://Inventory/test_inv.tres")
 func _ready() -> void:
-	var inventoryData = preload("res://Inventory/test_inv.tres")
+	setInventoryData(inventoryData)
 	fillGrid(inventoryData)
-
+	
+func get_inventory_data() -> InventoryData:
+	return inventoryData
 func getItemGrid() -> GridContainer:
 	return item_grid
 

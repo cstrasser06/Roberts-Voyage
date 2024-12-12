@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpg33rpmh0l3q"]
+
+[ext_resource type="Script" path="res://Scripts/inventory/temp_inventory.gd" id="1_3js4k"]
+[ext_resource type="PackedScene" uid="uid://bj0k6l15qt7ir" path="res://Inventory/inventory.tscn" id="2_j6kvy"]
+[ext_resource type="Script" path="res://Scripts/inventory/inventory_interface.gd" id="3_qhtkm"]
+[ext_resource type="PackedScene" uid="uid://bmpuhojy3fx5s" path="res://Inventory/slot.tscn" id="4_o2h6r"]
+[ext_resource type="PackedScene" uid="uid://cxslqub3k1620" path="res://Item/pickable/item_pickable.tscn" id="5_j2117"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65rl4"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="tempInventory" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0.694118)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
+size_flags_vertical = 0
+script = ExtResource("1_3js4k")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerInventory" parent="tempInventory" instance=ExtResource("2_j6kvy")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -25.0
+offset_right = 25.0
+offset_bottom = 50.0
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="InventoryInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("3_qhtkm")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="InventoryInterface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+color = Color(0.409389, 0.418957, 0.368898, 0.768627)
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerInventory" parent="InventoryInterface" instance=ExtResource("2_j6kvy")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="grabbedSlot" parent="InventoryInterface" instance=ExtResource("4_o2h6r")]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_65rl4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Items" type="CanvasLayer" parent="."]
+
+[node name="Area2D" parent="Items" instance=ExtResource("5_j2117")]
+
+[node name="item_pickable" parent="Items" instance=ExtResource("5_j2117")]
+
+[node name="item_pickable2" parent="Items" instance=ExtResource("5_j2117")]
