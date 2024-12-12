@@ -13,8 +13,8 @@ var EnergyBallEnemyScene = preload("res://Scenes/EnergyBallEnemie.tscn")
 func spawn_energyball():
 	
 	var enemy = EnergyBallEnemyScene.instantiate()
-	var randomx = randf_range(600, 1600)
-	var randomy = randf_range(200, 800)
+	var randomx = randf_range(800, 1500)
+	var randomy = randf_range(300, 700)
 	enemy.position = Vector2(randomx, randomy)
 	#add_child(enemy)
 	get_tree().root.add_child(enemy,true)

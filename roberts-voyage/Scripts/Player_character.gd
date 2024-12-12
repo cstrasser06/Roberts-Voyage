@@ -7,6 +7,8 @@ var canattack = false;
 func _ready() -> void:
 	inventoryData = preload("res://Inventory/test_inv.tres")
 
+var dirfliptmp = true
+
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -16,13 +18,17 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("MOVELEFT"):
 		$AnimatedSprite2D.play("robert_walk")
 		$AnimatedSprite2D.flip_h = true;
+		dirfliptmp = false;
 		
-	elif Input.is_action_pressed("MOVEDOWN") || Input.is_action_pressed("MOVEUP") || Input.is_action_pressed("MOVERIGHT"):
+	elif Input.is_action_pressed("MOVERIGHT"):
 		$AnimatedSprite2D.play("robert_walk")
 		$AnimatedSprite2D.flip_h = false;
-			
+		dirfliptmp = true
+	elif Input.is_action_pressed("MOVEDOWN") || Input.is_action_pressed("MOVEUP"):
+		$AnimatedSprite2D.play("robert_walk")
 	else:
 		$AnimatedSprite2D.play("robert_idle")
+		$AnimatedSprite2D.flip_h = dirfliptmp
 	
 	
 	
