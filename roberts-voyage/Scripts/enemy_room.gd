@@ -17,7 +17,7 @@ func spawn_energyball():
 	var randomy = randf_range(200, 800)
 	enemy.position = Vector2(randomx, randomy)
 	#add_child(enemy)
-	get_tree().root.add_child(enemy)
+	get_tree().root.add_child(enemy,true)
 
 func spawn_bossU():
 	pass

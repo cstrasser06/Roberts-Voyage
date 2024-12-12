@@ -35,7 +35,6 @@ func createnewroom():
 		currentscene = load.instantiate()
 		gobj.add_child(currentscene)
 		for i in randi_range(1,3):
-			await get_tree().create_timer(2).timeout;
 			Enemyspawning.spawn_energyball()
 	else:
 		var load = load("res://Scenes/Rooms/Room_"+ Bioms[currentBiom] + characters[randi_range(0,8)]+"0.tscn");
@@ -43,7 +42,6 @@ func createnewroom():
 		#get_tree().root.call_deferred("add_child", currentscene)
 		gobj.add_child(currentscene)
 		for i in randi_range(1,3):
-			await get_tree().create_timer(2).timeout;
 			Enemyspawning.spawn_energyball()
 			
 	
