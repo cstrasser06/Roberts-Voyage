@@ -26,7 +26,7 @@ func dropGrabbedItem() -> void:
 	print(drop_position)
 	print(player.position)
 	print(dropped_item_data.name)
-	dropped_item.setItemData(dropped_item_data)
+	#dropped_item.setItemData(dropped_item_data)
 	
 	removeGrabbedItemFromInventory()
 	

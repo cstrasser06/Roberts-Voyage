@@ -1,10 +1,10 @@
 extends Node
 
-@onready var player: CharacterBody2D = $PlayerCharacter
-@onready var inventory_interface: Control = $"UI/InventoryInterface"
-@onready var temp_inventory: Control = $UI/tempInventory
-@onready var player_inventory: PanelContainer = $UI/tempInventory/PlayerInventory
-@onready var pickableItem: Area2D = $UI/Items/Area2D
+@onready var player: CharacterBody2D #= $PlayerCharacter
+@onready var inventory_interface: Control #= $"UI/InventoryInterface"
+@onready var temp_inventory: Control #= $UI/tempInventory
+@onready var player_inventory: PanelContainer #= $UI/tempInventory/PlayerInventory
+@onready var pickableItem: Area2D #= $UI/Items/Area2D
 
 @onready var timer = Timer.new()
 @onready var timer_active = false

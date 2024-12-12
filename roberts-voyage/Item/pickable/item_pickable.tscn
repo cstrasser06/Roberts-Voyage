@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxslqub3k1620"]
-
-[ext_resource type="Script" path="res://Item/pickable/item_pickable.gd" id="1_skr01"]
+[gd_scene load_steps=3 format=3 uid="uid://cxslqub3k1620"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f58u5"]
 size = Vector2(32, 32)
@@ -8,7 +6,6 @@ size = Vector2(32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1x3gl"]
 
 [node name="item_pickable" type="Area2D"]
-script = ExtResource("1_skr01")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_f58u5")

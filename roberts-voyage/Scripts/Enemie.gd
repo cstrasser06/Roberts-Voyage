@@ -42,9 +42,9 @@ func _physics_process(delta: float):
 			time_passed = 0.0
 			wait_time = 0.0
 
-	if position.x < 0 or position.x > get_viewport_rect().size.x:
+	if position.x < 64 or position.x > get_viewport_rect().size.x-64:
 		velocity.x *= -1
-	if position.y < 0 or position.y > get_viewport_rect().size.y:
+	if position.y < 64 or position.y > get_viewport_rect().size.y-64:
 		velocity.y *= -1
 		
 	# Follow Player ------------------------
